@@ -7,8 +7,8 @@ library(data.table)
 
 # Daily Automatic Update Links
 
-# covid_19_link currently updated to 4/22/2020
-covid_19_link <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-22-2020.csv"
+# covid_19_link currently updated to 4/24/2020
+covid_19_link <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-24-2020.csv"
 population_link <- "https://datacenter.prb.org/download/international/indicator/population/csv"
 
 
@@ -19,7 +19,7 @@ population_link <- "https://datacenter.prb.org/download/international/indicator/
 # Columns at the end of each dataset
 
 # Obesity Data
-obesity <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/other_statistics/FAOSTAT_percent_obesity.csv")
+obesity <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/other_statistics/FAOSTAT_percent_obesity.csv")
 obesity <- obesity %>% select(c("Area", "Value"))
 colnames(obesity) <- c("Country", "Obesity")
 levels(obesity$Country)[levels(obesity$Country)== "Bolivia (Plurinational State of)"] <- "Bolivia"
@@ -30,7 +30,7 @@ levels(obesity$Country)[levels(obesity$Country)== "Democratic People's Republic 
 levels(obesity$Country)[levels(obesity$Country)== "Republic of Korea"] <- "Korea, South"
 
 # Undernourished Data
-undernourished <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/other_statistics/FAOSTAT_percentage_under_nourished.csv")
+undernourished <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/other_statistics/FAOSTAT_percentage_under_nourished.csv")
 undernourished <- undernourished %>% select(c("Area", "Value"))
 colnames(undernourished) <-  c("Country", "Undernourished")
 levels(undernourished$Country)[levels(undernourished$Country)== "Bolivia (Plurinational State of)"] <- "Bolivia"
@@ -162,21 +162,21 @@ percentage <- function(data) {
 
 
 # Vegetal Product for Food Supply (kg)
-food_kg_vegetal <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Unprocessed_Data/FAOSTAT_food_kg_vegetal_prod_unprocessed.csv")
+food_kg_vegetal <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Unprocessed_Data/FAOSTAT_food_kg_vegetal_prod_unprocessed.csv")
 food_kg_vegetal <- food_kg_vegetal %>% select("Area", "Value") 
 colnames(food_kg_vegetal)[which(names(food_kg_vegetal) == "Value")] <- "Vegetal Products" 
 colnames(food_kg_vegetal)[which(names(food_kg_vegetal) == "Area")] <- "Country"
 food_kg_vegetal <- dplyr::group_by(food_kg_vegetal, Country) %>% dplyr::summarise_all(sum)
-write.csv(food_kg_vegetal, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Unprocessed_Data/FAOSTAT_food_kg_vegetal_prod.csv", row.names = FALSE)
+write.csv(food_kg_vegetal, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Unprocessed_Data/FAOSTAT_food_kg_vegetal_prod.csv", row.names = FALSE)
 food_kg_vegetal <- process_extra_csv(food_kg_vegetal)
 
 # Animal Product for Food Supply (kg)
-food_kg_animal <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Unprocessed_Data/FAOSTAT_food_kg_animal_unprocessed.csv")
+food_kg_animal <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Unprocessed_Data/FAOSTAT_food_kg_animal_unprocessed.csv")
 food_kg_animal <- food_kg_animal %>% select("Area", "Value")
 colnames(food_kg_animal)[which(names(food_kg_animal) == "Value")] <- "Animal Products" 
 colnames(food_kg_animal)[which(names(food_kg_animal) == "Area")] <- "Country"
 food_kg_animal <- dplyr::group_by(food_kg_animal, Country) %>% dplyr::summarise_all(sum)
-write.csv(food_kg_animal, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Unprocessed_Data/FAOSTAT_food_kg_animal.csv", row.names = FALSE)
+write.csv(food_kg_animal, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Unprocessed_Data/FAOSTAT_food_kg_animal.csv", row.names = FALSE)
 food_kg_animal <- process_extra_csv(food_kg_animal)
 
 
@@ -188,7 +188,7 @@ food_kg_animal <- process_extra_csv(food_kg_animal)
 
 # Food Supply Quantity (kg) dataset
 
-setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Food_Supply_Quantity_Kg")
+setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Food_Supply_Quantity_Kg")
 fileNames1 <- Sys.glob("*.csv")
 
 food_supply_kg_data <- process_csv(fileNames1[1])
@@ -222,14 +222,14 @@ food_supply_kg_data <- merge_covid_data(food_supply_kg_data)
 food_supply_kg_data <- merge_population_data(food_supply_kg_data)
 
 # Write the output file
-write.csv(food_supply_kg_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Cleaned_Datasets/Food_Supply_Quantity_kg_Data.csv", row.names = FALSE)
+write.csv(food_supply_kg_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Cleaned_Datasets/Food_Supply_Quantity_kg_Data.csv", row.names = FALSE)
 
 
 
 
 # Food Supply (kcal) Dataset
 
-setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Food_Supply_Kcal")
+setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Food_Supply_Kcal")
 fileNames2 <- Sys.glob("*.csv")
 
 food_supply_kcal_data <- process_csv(fileNames2[1])
@@ -256,14 +256,14 @@ food_supply_kcal_data <- merge_covid_data(food_supply_kcal_data)
 food_supply_kcal_data <- merge_population_data(food_supply_kcal_data)
 
 # Write the output file.
-write.csv(food_supply_kcal_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Cleaned_Datasets/Food_Supply_kcal_Data.csv", row.names = FALSE)
+write.csv(food_supply_kcal_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Cleaned_Datasets/Food_Supply_kcal_Data.csv", row.names = FALSE)
 
 
 
 
 # Protein Supply Quantity Dataset
 
-setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Protein_Supply")
+setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Protein_Supply")
 fileNames3 <- Sys.glob("*.csv")
 
 protein_data <- process_csv(fileNames3[1])
@@ -290,14 +290,14 @@ protein_data <- merge_covid_data(protein_data)
 protein_data <- merge_population_data(protein_data)
 
 # Write the output file.
-write.csv(protein_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Cleaned_Datasets/Protein_Supply_Quantity_Data.csv", row.names = FALSE)
+write.csv(protein_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Cleaned_Datasets/Protein_Supply_Quantity_Data.csv", row.names = FALSE)
 
 
 
 
 # Fat Supply Quantity Dataset
 
-setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Fat_Supply")
+setwd("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Fat_Supply")
 fileNames4 <- Sys.glob("*.csv")
 
 fat_data <- process_csv(fileNames4[1])
@@ -324,14 +324,14 @@ fat_data <- merge_covid_data(fat_data)
 fat_data <- merge_population_data(fat_data)
 
 # Write the output file.
-write.csv(fat_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Cleaned_Datasets/Fat_Supply_Quantity_Data.csv", row.names = FALSE)
+write.csv(fat_data, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Cleaned_Datasets/Fat_Supply_Quantity_Data.csv", row.names = FALSE)
 
 
 # Documentation (used to identify food associated with each categories)
 
 # Data Descriptions File
 
-description <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/other_statistics/FAOSTAT_data_descriptions.csv")
+description <- read.csv("/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/other_statistics/FAOSTAT_data_descriptions.csv")
 description <- description %>% select("Item.Group", "Item")
 colnames(description) <- c("Categories", "Items")
 combine <- function(x) paste(unique(x), collapse="; ")
@@ -340,5 +340,5 @@ description_cleaned <- description_cleaned %>% select(c("Categories", "Items"))
 description_cleaned <- description_cleaned[!(description_cleaned$Categories == "Grand Total"),]
 
 # Write the output file.
-write.csv(description_cleaned, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/Data/Cleaned_Datasets/Data_Descriptions.csv", row.names = FALSE)
+write.csv(description_cleaned, "/Users/mariaren/Desktop/COVID_Dataset_Challenge/git/COVID_19_Dataset_Challenge/Cleaned_Datasets/Supply_Food_Data_Descriptions.csv", row.names = FALSE)
 
