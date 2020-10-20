@@ -7,8 +7,8 @@ library(data.table)
 
 # Daily Automatic Update Links
 
-# covid_19_link currently updated to 10/11/2020
-covid_19_link <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/10-11-2020.csv"
+# covid_19_link currently updated to 10/19/2020
+covid_19_link <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/10-19-2020.csv"
 population_link <- "https://datacenter.prb.org/download/international/indicator/population/csv"
 
 
