@@ -1,12 +1,20 @@
-# COVID_19_Dataset_Challenge
+# COVID-19_Healthy_Diet_Dataset_Challenge
 
+## This research project was enrolled in the Kaggle COVID-19 dataset competition. 
 ## Check out my Kaggle page here: 
 https://www.kaggle.com/datasets/mariaren/covid19-healthy-diet-dataset 
 
-## Project Overview
+## About Dataset
+
+```
+“Health requires healthy food."
+
+Roger Williams (1603 – 1683)
+```
+
 In the past couple months, we’ve witnessed doctors, nurses, paramedics and thousands of medical workers putting their lives on the frontline to save patients who are infected. And as the battle with COVID-19 continues, we should all ask ourselves – What should we do to help out? What can we do to protect our loved ones, those who sacrifice for us, and ourselves from this pandemic?
 
-These questions all relate back to the CORD-19 Open Research Dataset Challenge Task Question: “What do we know about non-pharmaceutical interventions?” 
+These questions all relate back to the CORD-19 Open Research Dataset Challenge Task Question: [What do we know about non-pharmaceutical interventions?](https://www.kaggle.com/datasets/allen-institute-for-ai/CORD-19-research-challenge?taskId=587)
 
 
 And my simple answer is : We need to protect our families and our own healths by adapting to a healthy diet.
@@ -25,7 +33,7 @@ In each of the 4 datasets below, I have calculated fat quantity, energy intake (
 
 ## Acknowledgements
 
-- Data for different food group supply quantities, nutrition values, obesity, and undernourished percentages are obtained from Food and Agriculture Organization of the United Nations FAO website To see the specific types of food included in each category from the FAO data, take a look at the last dataset Supply_Food_Data_Description.csv.
-- Data for population count for each country comes from Population Reference Bureau PRB website
-- Data for COVID-19 confirmed, deaths, recovered and active cases are obtained from Johns Hopkins Center for Systems Science and Engineering CSSE website
-The USDA Center for Nutrition Policy and Promotion diet intake guideline information can be found in ChooseMyPlate.gov
+- Data for different food group supply quantities, nutrition values, obesity, and undernourished percentages are obtained from Food and Agriculture Organization of the United Nations [FAO website](https://www.fao.org/faostat/en/#home) To see the specific types of food included in each category from the FAO data, take a look at the last dataset Supply_Food_Data_Description.csv.
+- Data for population count for each country comes from Population Reference Bureau [PRB website](https://www.prb.org)
+- Data for COVID-19 confirmed, deaths, recovered and active cases are obtained from Johns Hopkins Center for Systems Science and Engineering [CSSE website](https://coronavirus.jhu.edu/map.html)
+The USDA Center for Nutrition Policy and Promotion diet intake guideline information can be found in [ChooseMyPlate.gov](https://www.myplate.gov)
